@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic portfolio of a PhD researcher working in DFT, DMFT, spectroscopy, Bayesian optimization, neural networks, and many-body quantum physics." />
+  <title>Your Name | PhD Researcher</title>
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-2: #eaf0f8;
+      --text: #182230;
+      --muted: #5f6b7a;
+      --primary: #1f5f8b;
+      --primary-dark: #174866;
+      --accent: #40a6a6;
+      --border: #d9e2ec;
+      --shadow: 0 18px 45px rgba(31, 95, 139, 0.12);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244, 247, 251, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217, 226, 236, 0.8);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--primary-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 92px 0 72px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(64, 166, 166, 0.16), transparent 30%),
+        radial-gradient(circle at 15% 15%, rgba(31, 95, 139, 0.13), transparent 28%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.6rem, 7vw, 5.3rem);
+      letter-spacing: -0.05em;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 12px;
+      border: 1px solid var(--primary);
+      font-weight: 750;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      color: var(--primary-dark);
+      background: transparent;
+    }
+
+    .button.secondary:hover {
+      background: var(--surface);
+      transform: translateY(-2px);
+    }
+
+    .profile-card {
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-photo {
+      aspect-ratio: 1 / 1;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(145deg, rgba(31, 95, 139, 0.95), rgba(64, 166, 166, 0.85));
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .profile-meta {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .profile-meta strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      max-width: 740px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .research-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(31, 95, 139, 0.06);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about-copy {
+      color: var(--muted);
+    }
+
+    .facts {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fact {
+      padding: 18px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .fact strong {
+      color: var(--text);
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .publication:last-child {
+      border-bottom: 0;
+    }
+
+    .pub-year {
+      min-width: 62px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--primary-dark);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .publication h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .publication p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact-box {
+      padding: 34px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-box p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 32px 0 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 420px;
+      }
+
+      .research-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .hero {
+        padding-top: 66px;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">YOUR NAME</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">PhD Researcher · Computational Materials Science</span>
+          <h1>Exploring <span>quantum materials</span> with theory, spectroscopy, and machine learning.</h1>
+          <p class="hero-copy">
+            I am a PhD student working at the intersection of density functional theory,
+            dynamical mean-field theory, many-body quantum physics, X-ray spectroscopy,
+            Bayesian optimization, and neural networks.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#research">View my research</a>
+            <a class="button secondary" href="cv.pdf">Download CV</a>
+          </div>
+
+          <div class="tag-list" aria-label="Research keywords">
+            <span class="tag">DFT</span>
+            <span class="tag">DMFT</span>
+            <span class="tag">XAS</span>
+            <span class="tag">XPS</span>
+            <span class="tag">RIXS</span>
+            <span class="tag">Bayesian Optimization</span>
+            <span class="tag">Neural Networks</span>
+            <span class="tag">Many-Body Quantum Physics</span>
+          </div>
+        </div>
+
+        <aside class="profile-card">
+          <div class="profile-photo">
+            Add your photo here
+          </div>
+          <div class="profile-meta">
+            <strong>Your Name</strong>
+            PhD Student<br />
+            Department / Research Group<br />
+            University Name
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">About</span>
+          <h2>Computational research across electronic structure and spectroscopy</h2>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-copy">
+            <p>
+              My research focuses on understanding correlated quantum materials by combining
+              first-principles electronic-structure calculations with many-body methods and
+              spectroscopic simulations. I am particularly interested in connecting microscopic
+              theory with experimental observables.
+            </p>
+            <p>
+              I also explore data-driven strategies, including Bayesian optimization and neural
+              networks, to accelerate parameter searches, improve predictive models, and reveal
+              structure in complex materials data.
+            </p>
+          </div>
+
+          <div class="facts">
+            <div class="fact">
+              <span>Current position</span>
+              <strong>PhD Student, University Name</strong>
+            </div>
+            <div class="fact">
+              <span>Research area</span>
+              <strong>Computational condensed matter and quantum materials</strong>
+            </div>
+            <div class="fact">
+              <span>Methods</span>
+              <strong>DFT, DMFT, spectroscopy, and machine learning</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Research</span>
+          <h2>Core research themes</h2>
+          <p>
+            Replace these summaries with details about your current projects, materials systems,
+            codes, collaborations, and scientific questions.
+          </p>
+        </div>
+
+        <div class="grid research-grid">
+          <article class="card">
+            <h3>Density Functional Theory</h3>
+            <p>
+              First-principles calculations of structural, electronic, magnetic, and orbital
+              properties in complex materials.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Dynamical Mean-Field Theory</h3>
+            <p>
+              Many-body modeling of strongly correlated systems, including temperature-dependent
+              spectra and correlation-driven phenomena.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>X-ray Spectroscopy</h3>
+            <p>
+              Simulation and interpretation of XAS, XPS, and RIXS measurements to connect
+              electronic structure with experiment.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Bayesian Optimization</h3>
+            <p>
+              Efficient exploration of expensive parameter spaces for materials design,
+              model calibration, and inverse problems.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Neural Networks</h3>
+            <p>
+              Machine-learning models for surrogate prediction, feature discovery, and
+              acceleration of computational workflows.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Many-Body Quantum Physics</h3>
+            <p>
+              Theoretical investigation of collective behavior, electronic correlations,
+              quasiparticles, and emergent quantum phases.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Publications</span>
+          <h2>Selected work</h2>
+          <p>Add your papers, preprints, conference proceedings, and thesis work here.</p>
+        </div>
+
+        <div class="card">
+          <article class="publication">
+            <div class="pub-year">2026</div>
+            <div>
+              <h3>Title of your publication or preprint</h3>
+              <p>Your Name, Coauthor One, Coauthor Two · Journal or arXiv · DOI / link</p>
+            </div>
+          </article>
+
+          <article class="publication">
+            <div class="pub-year">2025</div>
+            <div>
+              <h3>Another publication title</h3>
+              <p>Your Name, Collaborators · Journal Name · DOI / link</p>
+            </div>
+          </article>
+
+          <article class="publication">
+            <div class="pub-year">2024</div>
+            <div>
+              <h3>Conference contribution, poster, or thesis chapter</h3>
+              <p>Conference or institution · Location · Link</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Let’s connect</h2>
+            <p>
+              I am interested in collaborations involving quantum materials, spectroscopy,
+              electronic-structure theory, and machine learning.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a href="mailto:your.email@university.edu">Email</a>
+            <a href="#">Google Scholar</a>
+            <a href="#">ORCID</a>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Your Name · Academic portfolio
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
